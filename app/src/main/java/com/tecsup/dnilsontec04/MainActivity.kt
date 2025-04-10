@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -76,7 +77,10 @@ fun GreetingCard() {
             contentDescription = "Course Image",
             modifier = Modifier.size(100.dp)
         )
-
+        Spacer(modifier = Modifier.height(25.dp))
+        Row{
+            RadioButtonComponent()
+        }
         Spacer(modifier = Modifier.height(25.dp))
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -145,6 +149,31 @@ fun CheckboxComponent() {
     }
 }
 
+@Composable
+fun RadioButtonComponent() {
+    var selectedOption by remember { mutableStateOf<String?>(null) }
+    val radioOptions = listOf("Administracion de Redes", "Diseño y desarrollo de software")
+
+    Column {
+        Text("Carrera:", style = MaterialTheme.typography.titleMedium)
+        radioOptions.forEach { text ->
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RadioButton(
+                    selected = (text == selectedOption),
+                    onClick = { selectedOption = text }
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(text = text, style = MaterialTheme.typography.bodyLarge)
+            }
+        }
+        Text("La carrera es: ${selectedOption ?: "None"}")
+    }
+}
 
 
 
