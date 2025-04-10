@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -71,12 +72,6 @@ fun GreetingCard() {
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Image(
-            painter = painterResource(id = R.drawable.logo_tecsup),
-            contentDescription = "Course Image",
-            modifier = Modifier.size(100.dp)
-        )
         Spacer(modifier = Modifier.height(25.dp))
         Row{
             RadioButtonComponent()
@@ -88,8 +83,10 @@ fun GreetingCard() {
         ) {
             //Checkbox
             CheckboxComponent()
-
-
+        }
+        Row{
+            Spacer(modifier = Modifier.height(16.dp))
+            IconComponent()
         }
     }
 }
@@ -176,6 +173,20 @@ fun RadioButtonComponent() {
 }
 
 
+@Composable
+fun IconComponent() {
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            painter = painterResource(id = R.drawable.logo_tecsup),
+            contentDescription = "Course Image",
+            modifier = Modifier.size(45.dp)
+        )
+    }
+    Column {
+            Text("Mas informacion", style = MaterialTheme.typography.bodyLarge) }
+}
 
 @Preview(showBackground = true)
 @Composable
