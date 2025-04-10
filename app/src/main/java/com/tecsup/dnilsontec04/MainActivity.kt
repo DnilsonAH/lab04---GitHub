@@ -185,7 +185,7 @@ fun IconComponent() {
         )
     }
     Column {
-            Text("Mas informacion", style = MaterialTheme.typography.bodyLarge) }
+            Text("Hola soy un cambio en el codigo", style = MaterialTheme.typography.bodyLarge) }
 }
 
 @Preview(showBackground = true)
