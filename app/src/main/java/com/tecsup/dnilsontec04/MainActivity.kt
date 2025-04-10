@@ -98,7 +98,7 @@ fun CheckboxComponent() {
     var checkedState3 by remember { mutableStateOf(false) }
 
     Column {
-        Text("Curso:", style = MaterialTheme.typography.titleMedium)
+        Text("Elija su curso favorito:", style = MaterialTheme.typography.titleMedium)
         Row(
             Modifier
                 .fillMaxWidth()
